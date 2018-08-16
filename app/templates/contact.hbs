@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+  <h1>{{headerMessage}}</h1>
+
+  <br/><br/>
+
+  <p>Please feel free to contact us with any questions or enquiries.</p>
+
+  <div class="form-horizontal form-group form-group-lg row">
+    <div class="form-group {{emailStatus}} has-feedback">
+        {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+        {{#if emailIsValid}}
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        {{else}}
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr-only">(error)</span>
+        {{/if}}
+    </div>
+    <div class="form-group {{messageStatus}} has-feedback">
+        {{textarea class="form-control" value=message id="comment" rows="5" placeholder="Please type your message."}}
+        {{#if commentIsValid}}
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        {{else}}
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr-only">(error)</span>
+        {{/if}}
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveMessage'}}>Send message</button>
+    </div>
+  </div>
+
+  {{#if responseMessage}}
+    <div class="alert alert-success">{{responseMessage}}</div>
+  {{/if}}
+
+  <br/><br/>
+</div>

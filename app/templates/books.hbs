@@ -1,0 +1,44 @@
+ <h1>Books</h1>
+
+ <table class="table table-bordered table-striped">
+   <thead>
+     <tr>
+       <th>Book Name</th>
+       <th>Details</th>
+     </tr>
+   </thead>
+   <tbody>
+     {{#each model as |book|}}
+       <tr>
+         {{!-- {{#if author.isEditing}}
+            <form {{action 'saveAuthor' author on='submit'}} class="form-inline">
+                <div class="input-group">
+                    {{input value=author.name class="form-control"}}
+                    <div class="input-group-btn pull-right">
+                        <button type="submit" class="btn btn-success" disabled={{author.isNotValid}}>Save</button>
+                        <button class="btn btn-danger" {{action 'cancelAuthorEdit' author}}>Cancel</button>
+                    </div>
+                </div>
+            </form>
+        {{else}} --}}
+        <div>
+          {{book.title}}
+          {{!-- <button class="btn btn-default pull-right" {{action 'editAuthor' author}}>Edit</button> --}}
+        </div>
+        {{!-- {{/if}} --}}
+         <td>
+           <ul>
+             <li>{{book.releaseYear}}</li>
+             <li>{{book.author.name}}</li>
+             {{!-- <li>{{book.hasLibrary}}</li>  --}}
+             {{!-- {{#if book.hasLibrary}} --}}
+                {{!-- <li>{{book.library.name}}</li> --}}
+             {{!-- {{else}} --}}
+                {{!-- <p>Not in stock</p> --}}
+             {{!-- {{/if}} --}}
+           </ul>
+         </td>
+       </tr>
+     {{/each}}
+   </tbody>
+ </table>
